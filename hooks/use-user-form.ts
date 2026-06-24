@@ -31,9 +31,10 @@ export function useUserForm({ userId }: UserFormProps) {
         mode: "onChange",
         defaultValues: {
             name    : "",
-            login   : "",
+            lastname: "",
             password: "",
-            role    : "user",
+            document: "",
+            profile : "",
             status  : 1
         }
     });
@@ -48,15 +49,17 @@ export function useUserForm({ userId }: UserFormProps) {
             const payload: CreateUserFormData | UpdateUserFormData = isEdit
                 ? {
                     name    : data.name,
-                    login   : data.login,
-                    role    : data.role,
+                    lastname: data.lastname,
+                    document: data.document,
+                    profile : data.profile,
                     status  : data.status
                 }
                 : {
                     name    : data.name,
-                    login   : data.login,
+                    lastname: data.lastname,
                     password: data.password ?? "",
-                    role    : data.role,
+                    document: data.document,
+                    profile : data.profile,
                     status  : data.status
                 };
             // console.log("[useUserForm] Payload montado para envio:", payload);
@@ -93,7 +96,7 @@ export function useUserForm({ userId }: UserFormProps) {
                 callback: (result) => {
                     if (result.isConfirmed) {
                         // REDIRECIONA PÁGINA
-                        router.push("/users");
+                        router.push("/admin/users");
                     }
                 }
             });

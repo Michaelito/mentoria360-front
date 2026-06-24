@@ -1,25 +1,7 @@
 import jwt from "jsonwebtoken";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { AuthResponse, AuthResponseJwtDecoded } from "@/types/type-login";
 import type { NextAuthOptions } from "next-auth";
-
-// USERS-MOCK
-const USERS_MOCK = [
-    {
-        id      : 1,
-        name    : "Administrador",
-        login   : "admin@email.com",
-        password: "123456",
-        role    : "admin"
-    },
-    {
-        id      : 2,
-        name    : "Usuário",
-        login   : "user@email.com",
-        password: "123456",
-        role    : "user"
-    }
-];
+import { AuthResponse, AuthResponseJwtDecoded } from "@/types/type-login";
 
 /*---- =======================
 NEXT-AUTH START ------------*/
@@ -28,7 +10,7 @@ export const nextAuthOptions: NextAuthOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                login: {
+                email: {
                     label: "Email",
                     type: "text"
                 },
@@ -38,59 +20,13 @@ export const nextAuthOptions: NextAuthOptions = {
                 }
             },
 
-            // AUTHORIZER-MOCK
-            async authorize(credentials) {
-                // VALIDA AS CREDENCIAIS
-                if (!credentials?.login || !credentials?.password) {
-                    return null;
-                }
-
-                // PROCURA USUÁRIO MOCKADO
-                const user = USERS_MOCK.find(
-                    u =>
-                        u.login === credentials.login &&
-                        u.password === credentials.password
-                );
-
-                // 🔹 USUÁRIO NÃO ENCONTRADO
-                if (!user) {
-                    return null;
-                }
-
-                // 🔹 SIMULA O JWT QUE O BACKEND RETORNARIA
-                const accessToken = jwt.sign(
-                    {
-                        id   : user.id,
-                        role : user.role,
-                        login: user.login,
-                        name : user.name
-                    },
-                    process.env.NEXTAUTH_SECRET!,
-                    {
-                        expiresIn: "24h"
-                    }
-                );
-
-                // DECODIFIQUE O TOKEN
-                const decoded = jwt.decode(accessToken) as AuthResponseJwtDecoded;
-                return {
-                    id         : String(user.id),
-                    name       : user.name,
-                    login      : user.login,
-                    role       : user.role,
-                    accessToken,
-                    dtExpired  : String(decoded.exp)
-                };
-            }
-
-            /*
             // AUTHORIZER
             async authorize(credentials) {
                 // console.log("authorize chamado");
                 // console.log("credentials recebidas:", credentials);
 
                 // VALIDA AS CREDENCIAIS
-                if (!credentials?.login || !credentials?.password) {
+                if (!credentials?.email || !credentials?.password) {
                     // console.log("nenhuma credencial recebida");
                     return null;
                 }
@@ -100,11 +36,10 @@ export const nextAuthOptions: NextAuthOptions = {
                     const res = await fetch(`${process.env.NEXT_PUBLIC_URL_BASE}/auth/login`, {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json",
-                            "X-Tenant-Id": process.env.NEXT_PUBLIC_TENANT_TOKEN as string
+                            "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            login: credentials?.login,
+                            email: credentials?.email,
                             password: credentials?.password
                         })
                     });
@@ -120,23 +55,24 @@ export const nextAuthOptions: NextAuthOptions = {
                     const data: AuthResponse = await res.json();
 
                     // VERIFIQUE SE EXISTE O TOKEN
-                    if (!data?.token) return null;
+                    if (!data?.user?.access_token) return null;
 
                     // DECODIFIQUE O TOKEN
-                    const decoded = jwt.decode(data.token) as AuthResponseJwtDecoded | null;
+                    const decoded = jwt.decode(data.user.access_token) as AuthResponseJwtDecoded | null;
+                    // console.log("login autorizado! accessToken:", decoded);
+
                     return {
                         id         : String(decoded?.id),
                         name       : decoded?.name,
-                        login      : decoded?.login,
-                        profile    : decoded?.role,
-                        accessToken: data.token,
-                        dtExpired  : String(decoded?.exp)
+                        email      : decoded?.email,
+                        profile    : decoded?.profile,
+                        accessToken: data.user.access_token,
+                        dtExpired  : data.user.dt_expired
                     };
                 } catch (error) {
                     throw new Error(error as string);
                 }
             }
-            */
         })
     ],
 
@@ -162,7 +98,7 @@ export const nextAuthOptions: NextAuthOptions = {
             if (user) {
                 token.id          = user.id;
                 token.name        = user.name || "";
-                token.login       = user.login || "";
+                token.email       = user.email || "";
                 token.profile     = user.profile;
                 token.accessToken = user.accessToken;
                 token.dtExpired   = user.dtExpired;
@@ -178,8 +114,8 @@ export const nextAuthOptions: NextAuthOptions = {
             session.user = {
                 id     : token.id  as string,
                 name   : token.name as string,
-                login  : token.login as string,
-                profile: token.profile as string
+                email  : token.email as string,
+                profile: token.profile as number
             };
 
             return session;

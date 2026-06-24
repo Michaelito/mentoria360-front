@@ -8,8 +8,8 @@ declare module "next-auth" {
         user: {
             id      : string;
             name    : string;
-            login   : string;
-            profile : string;
+            email   : string;
+            profile : number;
             company?: number;
         };
     };
@@ -18,8 +18,8 @@ declare module "next-auth" {
     interface User extends DefaultUser {
         id?         : string;
         name?       : string;
-        login?      : string;
-        profile?    : string;
+        email?      : string;
+        profile?    : number;
         company?    : number;
         accessToken?: string;
         dtExpired?  : string;
@@ -31,8 +31,8 @@ declare module "next-auth/jwt" {
     interface JWT {
         id?         : string;
         name?       : string;
-        login?      : string;
-        profile?    : string;
+        email?      : string;
+        profile?    : number;
         company?    : number;
         accessToken?: string;
         dtExpired?  : string;

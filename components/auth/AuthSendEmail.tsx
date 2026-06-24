@@ -70,7 +70,7 @@ export function AuthSendEmail() {
                         {/* FORMULÁRIO */}
                         <form onSubmit={firstForm.onSubmit} autoComplete="off" className="space-y-6">
                             <div className="space-y-2">
-                                <Label htmlFor="login" className="text-xs font-semibold uppercase tracking-wider text-gray-400 ml-1">
+                                <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-gray-400 ml-1">
                                     E-mail Cadastrado
                                 </Label>
                                 <div className="relative group">
@@ -79,12 +79,12 @@ export function AuthSendEmail() {
                                         type="email"
                                         className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
                                         placeholder="Digite seu e-mail..."
-                                        {...firstForm.form.register("login")}
+                                        {...firstForm.form.register("email")}
                                     />
                                 </div>
-                                {firstForm.form.formState.errors.login && (
+                                {firstForm.form.formState.errors.email && (
                                     <p className="text-[11px] font-medium text-red-600 ml-1 mt-1">
-                                        {firstForm.form.formState.errors.login.message}
+                                        {firstForm.form.formState.errors.email.message}
                                     </p>
                                 )}
                             </div>

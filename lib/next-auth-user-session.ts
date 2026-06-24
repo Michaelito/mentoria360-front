@@ -11,7 +11,7 @@ export async function getUserSessionData() {
     return {
         id     : session.user.id,
         name   : session.user.name,
-        login  : session.user.login,
+        email  : session.user.email,
         profile: session.user.profile,
         company: session.user.company
     };

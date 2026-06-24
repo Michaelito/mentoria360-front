@@ -23,7 +23,7 @@ export function useLoginSendEmailForm({ onSuccess, onCloseModal }: LoginSendEmai
         resolver: zodResolver(forgotPasswordFormSchema),
         mode: "onChange",
         defaultValues: {
-            login: ""
+            email: ""
         }
     });
 
@@ -51,7 +51,7 @@ export function useLoginSendEmailForm({ onSuccess, onCloseModal }: LoginSendEmai
                 text: "Verifique seu e-mail para continuar.",
                 callback: (result) => {
                     if (result.isConfirmed) {
-                        onSuccess(variables.login); // REDIRECIONA PÁGINA
+                        onSuccess(variables.email); // REDIRECIONA PÁGINA
                     }
                 }
             });

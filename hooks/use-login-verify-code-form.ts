@@ -37,7 +37,7 @@ export function useLoginVerifyCodeForm({ email, onSuccess, onCloseModal }: Login
 
             // PAYLOAD
             const payload = {
-                login: email,
+                email: email,
                 code : data.code,
                 password_new: data.password_new
             };

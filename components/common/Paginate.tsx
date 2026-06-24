@@ -55,7 +55,7 @@ export function Paginate({ page, totalPages, setPage }: PaginationProps) {
                     <PaginationLink
                         href="#"
                         className="
-                            bg-emerald-600 hover:bg-emerald-600/90 text-white hover:text-white
+                            bg-indigo-600 hover:bg-indigo-600/90 text-white hover:text-white
                             dark:bg-white dark:text-gray-900"
                         isActive
                     >

@@ -6,9 +6,10 @@ import { z } from "zod";
  */
 export type UserFormData = {
     name     : string;
-    login    : string;
+    lastname : string;
     password?: string;
-    role     : string;
+    document : string;
+    profile  : string;
     status?  : number;
 };
 
@@ -21,11 +22,15 @@ const baseUserFormSchema = z.object({
         .string({ error: requiredField })
         .nonempty(requiredField),
 
-    login: z
+    lastname: z
         .string({ error: requiredField })
         .nonempty(requiredField),
 
-    role: z
+    document: z
+    .string({ error: requiredField })
+    .nonempty(requiredField),
+
+    profile: z
         .string({ error: "Selecione um perfil" })
         .nonempty("Selecione um perfil"),
 

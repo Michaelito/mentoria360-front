@@ -21,7 +21,7 @@ CHANGE-PASSWORD END --------*/
 /*---- =======================
 FORGOT-PASSWORD START ------*/
 export const forgotPasswordFormSchema = z.object({
-    login: z
+    email: z
         .string()
         .nonempty("Preenchimento obrigatório")
         .email("E-mail inválido")
@@ -34,7 +34,7 @@ FORGOT-PASSWORD END --------*/
 /*---- =======================
 VERIFY-CODE START ----------*/
 export type IVerifyCodeForgotPasswordPayload = {
-    login: string;
+    email: string;
     code: string;
     password_new: string;
 };

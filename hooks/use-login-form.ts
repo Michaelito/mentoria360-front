@@ -19,7 +19,7 @@ export function useLoginForm() {
         criteriaMode: "all",
         mode: "onChange",
         defaultValues: {
-            login: "",
+            email: "",
             password: ""
         }
     });
@@ -31,7 +31,7 @@ export function useLoginForm() {
         ModalLoading(true);
         const result = await signIn("credentials", {
             redirect: false, // NÃO REDIRECIONA AUTOMATICAMENTE
-            login: data.login,
+            email: data.email,
             password: data.password
         });
         ModalLoading(false);

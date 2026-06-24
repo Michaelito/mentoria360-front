@@ -3,12 +3,14 @@ export interface IUser {
     id: number;
     uuid: string;
     name: string;
-    login: string;
-    role: string;
-    status?: number;
+    lastname: string;
+    email: string;
+    document: string;
+    profile: number;
     createdAt: string;
     dt_last_login: string;
     count_login: number;
+    status: number;
 };
 
 // USER PAGINATION

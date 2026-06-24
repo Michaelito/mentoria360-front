@@ -13,6 +13,7 @@ type UserProps = {
     filters: {
         name: string;
         email: string;
+        document: string;
     };
 };
 

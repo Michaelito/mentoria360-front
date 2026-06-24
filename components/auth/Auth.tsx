@@ -34,7 +34,7 @@ export function Auth() {
             {/* FORMULÁRIO */}
             <form onSubmit={handleSubmit(handleSubmitForm)} className="space-y-6" autoComplete="off">
                 <div className="space-y-2">
-                    <Label htmlFor="login" className="text-xs font-semibold uppercase tracking-wider text-gray-400 ml-1">
+                    <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-gray-400 ml-1">
                         Qual seu e-mail?
                     </Label>
                     <div className="relative group">
@@ -43,12 +43,12 @@ export function Auth() {
                             type="email"
                             className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
                             placeholder="Digite seu e-mail..."
-                            {...register("login")}
+                            {...register("email")}
                         />
                     </div>
-                    {errors.login && (
+                    {errors.email && (
                         <p className="text-[11px] font-medium text-red-600 ml-1 mt-1">
-                            {errors.login.message}
+                            {errors.email.message}
                         </p>
                     )}
                 </div>
