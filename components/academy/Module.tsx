@@ -77,7 +77,13 @@ export function Module() {
                         const Icon = moduleIcons[module.icon]; // ÍCONES DOS MÓDULOS
 
                         return (
-                            <article key={module.id} className="flex flex-col bg-white dark:bg-[#0A0A0B] rounded-2xl p-6">
+                            <article
+                                key={module.id}
+                                className="
+                                    bg-white dark:bg-[#0A0A0B]
+                                    rounded-2xl flex flex-col p-6
+                                "
+                            >
                                 <div
                                     className={`
                                         relative flex h-12 w-12 items-center
@@ -108,7 +114,7 @@ export function Module() {
                                             <Lock className="h-4 w-4 text-slate-400" />
                                         )}
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-950">
+                                    <h3 className="text-xl font-bold text-slate-950 dark:text-white">
                                         {module.title}
                                     </h3>
                                     <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">

@@ -1,7 +1,7 @@
 "use client"
 
-// import logo from "@/images/logo_light.png";
-// import Image from "next/image";
+import logo from "@/images/logo.png";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -60,21 +60,19 @@ export function Menu({ userProfile }: MenuProps) {
 
     return (
         <Sidebar collapsible="icon">
-            <SidebarHeader className="h-17 bg-indigo-800 dark:bg-[#0A0A0B] flex items-center justify-center">
-                {/*
+            <SidebarHeader className="h-17 bg-[#1A133d] dark:bg-[#0A0A0B] flex items-center justify-center">
                 <Image
                     src={logo}
                     width={120}
                     height={28}
                     alt="logo-light"
-                    className="w-auto h-10 object-contain brightness-0 invert"
+                    className="w-auto h-14 object-contain"
                     priority
                 />
-                */}
             </SidebarHeader>
 
             {/* SIDEBAR */}
-            <SidebarContent className="bg-indigo-800 dark:bg-[#0A0A0B]">
+            <SidebarContent className="bg-[#1A133d] dark:bg-[#0A0A0B]">
                 <SidebarGroup>
                     <SidebarGroupLabel className="text-[10px] text-slate-400 uppercase tracking-[0.18em] mb-2">
                         Conhecimento

@@ -6,7 +6,7 @@ import { toApiErrorClient } from "@/utils/api-error";
 import type { ApiResponse } from "@/types/type-api-response";
 import type { IVerifyCodeForgotPasswordPayload, ForgotPasswordFormData, ChangePasswordFormData } from "@/types/type-password";
 
-// ENVIA O E-MAIL
+// ALTERA A SENHA
 export async function changePassword(
     data: ChangePasswordFormData
 ): Promise<ApiResponse<{ message: string }>> {

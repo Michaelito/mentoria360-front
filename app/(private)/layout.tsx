@@ -26,7 +26,7 @@ export default async function PageLayout({
                     {/* CONTEÚDO */}
                     <article className="flex-1 overflow-y-auto bg-[#F4F5F7] dark:bg-[#0F1113] p-4 md:p-8 transition-colors duration-300">
                         <div className="max-w-[1600px] mx-auto animate-in fade-in slide-in-from-bottom-2 duration-500">
-                            <div className="space-y-4">
+                            <div className="space-y-8">
                                 {children}
                             </div>    
                         </div>

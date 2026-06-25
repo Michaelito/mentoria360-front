@@ -41,7 +41,7 @@ export function Auth() {
                         <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
                         <Input
                             type="email"
-                            className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                            className="pl-11 h-10 bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                             placeholder="Digite seu e-mail..."
                             {...register("email")}
                         />
@@ -65,7 +65,7 @@ export function Auth() {
                         <Input
                             type={showPassword ? "text" : "password"}
                             placeholder="Digite sua senha..."
-                            className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                            className="pl-11 h-10 bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                             {...register("password")}
                         />
 
