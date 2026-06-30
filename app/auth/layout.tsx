@@ -61,7 +61,7 @@ export default function PageLayout({
 
                     {/* COPYRIGHT */}
                     <p className="text-sm text-white/40">
-                        © {new Date().getFullYear()} AI Academy • Plataforma de Ensino em Inteligência Artificial
+                        © {new Date().getFullYear()} Mentoria 360 IA • Plataforma de Ensino em Inteligência Artificial
                     </p>
                 </article>
             </section>

@@ -43,7 +43,7 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-105 bg-white border-none overflow-hidden p-0">
                 <DialogHeader className="px-6 py-4">
-                    <DialogTitle className="flex items-center text-indigo-800 font-bold tracking-tight gap-2">
+                    <DialogTitle className="flex items-center text-indigo-600 font-bold tracking-tight gap-2">
                         <ShieldCheck className="w-4 h-4" />
                         Redefinir Senha
                     </DialogTitle>
@@ -51,7 +51,7 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
                 </DialogHeader>
                 <div className="px-8 pb-8 space-y-6">
                     <div className="flex flex-col items-center justify-center text-center space-y-3">
-                        <div className="rounded-2xl border border-indigo-800/30 bg-indigo-800/10 text-indigo-800 p-4">
+                        <div className="rounded-2xl border border-indigo-600/30 bg-indigo-600/10 text-indigo-600 p-4">
                             <CircleCheckBig className="h-8 w-8" />
                         </div>
                         <div className="space-y-1">
@@ -70,11 +70,11 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
                                     Código de Verificação
                                 </Label>
                                 <div className="relative group">
-                                    <ShieldCheck className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                                    <ShieldCheck className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                                     <Input
                                         type="text"
                                         placeholder="000000"
-                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                                         {...secondForm.form.register("code")}
                                     />
                                 </div>
@@ -91,11 +91,11 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
                                     Nova Senha
                                 </Label>
                                 <div className="relative group">
-                                    <Key className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                                    <Key className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                                     <Input
                                         type={showPassword ? "text" : "password"}
                                         placeholder="Digite sua nova senha..."
-                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                                         {...secondForm.form.register("password_new")}
                                     />
                                     <button
@@ -122,11 +122,11 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
                                     Confirmar Nova Senha
                                 </Label>
                                 <div className="relative group">
-                                    <Key className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                                    <Key className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                                     <Input
                                         type={showPasswordConfirm ? "text" : "password"}
                                         placeholder="Repita a nova senha..."
-                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                                         {...secondForm.form.register("confirm_password")}
                                     />
                                     <button
@@ -152,14 +152,14 @@ export function AuthVerifyCode({ open, email, onOpenChange, onBack }: AuthVerify
                         <DialogFooter className="flex flex-col gap-3 pt-4 sm:flex-col sm:space-x-0">
                             <Button
                                 type="submit"
-                                className="w-full h-10 bg-indigo-800 hover:bg-indigo-800/70 text-white"
+                                className="w-full h-10 bg-indigo-600 hover:bg-indigo-600/70 text-white"
                                 disabled={secondForm.isSubmitting}
                             >
                                 {secondForm.isSubmitting ? "Atualizando..." : "Alterar Senha"}
                             </Button>
                             <Button
                                 type="button"
-                                className="w-full h-10 text-gray-400 hover:text-indigo-800"
+                                className="w-full h-10 text-gray-400 hover:text-indigo-600"
                                 onClick={onBack}
                             >
                                 Voltar

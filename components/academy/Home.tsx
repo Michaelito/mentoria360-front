@@ -78,11 +78,11 @@ export function Home() {
                     <Button
                         asChild
                         size="lg"
-                        className="bg-white hover:bg-white/90 text-indigo-800 font-semibold px-6 py-6"
+                        className="bg-white hover:bg-white/90 text-indigo-600 font-semibold px-6 py-6"
                     >
                         <Link href="/academy">
                             Assistir aulas
-                            <Play className="h-4 w-4 fill-indigo-800" />
+                            <Play className="h-4 w-4 fill-indigo-600" />
                         </Link>
                     </Button>
                 </div>
@@ -96,7 +96,7 @@ export function Home() {
                     return (
                         <div
                             key={card.description}
-                            className="bg-white rounded-3xl space-y-2 p-6"
+                            className="bg-white dark:bg-[#0A0A0B] rounded-3xl space-y-2 p-6"
                         >
                             <Icon className="h-6 w-6 text-indigo-600" />
 
@@ -129,20 +129,19 @@ export function Home() {
 
             {/* CONTEÚDO */}
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1fr_390px]">
-                <div className="rounded-[28px] bg-white p-6">
+                <div className="rounded-[28px] bg-white dark:bg-[#0A0A0B] p-6">
                     <h2 className="text-2xl font-bold text-slate-950 dark:text-white">
                         Minha jornada
                     </h2>
                     <p className="mt-1 text-sm text-slate-500">
                         Continue pelos módulos recomendados para você.
                     </p>
-
                     <div className="mt-7 space-y-4">
                         {modules.map((module) => (
                             <div
                                 key={module.id}
                                 className="
-                                    flex items-center rounded-3xl p-5 gap-5
+                                    flex items-center rounded-3xl p-4 gap-5
                                     border border-slate-200 dark:border-white/10
                                 "
                             >
@@ -179,12 +178,13 @@ export function Home() {
                 </div>
 
                 {/* PROGRESSO */}
-                <aside className="bg-indigo-800 text-white rounded-[28px] p-7">
-                    <GraduationCap className="h-7 w-7 text-indigo-100" />
-
-                    <h2 className="mt-5 text-2xl font-bold">
-                        Seu progresso geral
-                    </h2>
+                <aside className="bg-indigo-800 text-white rounded-[28px] p-6">
+                    <div className="flex items-center gap-4">
+                        <GraduationCap className="h-7 w-7 text-indigo-100" />
+                        <h2 className="text-2xl font-bold">
+                            Seu progresso geral
+                        </h2>
+                    </div>
                     <div className="mt-8 flex items-center gap-7">
                         <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full border-10 border-white/25">
                             <span className="text-3xl font-bold">35%</span>

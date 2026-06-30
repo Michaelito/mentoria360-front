@@ -110,7 +110,7 @@ export function Module() {
                                         <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-indigo-600">
                                             {module.level}
                                         </span>
-                                        {!module.active && (
+                                        {module.status === 0 && (
                                             <Lock className="h-4 w-4 text-slate-400" />
                                         )}
                                     </div>
@@ -124,7 +124,7 @@ export function Module() {
 
                                 {/* BOTÃO */}
                                 <div className="flex items-center justify-between mt-auto pt-6">
-                                    {module.active ? (
+                                    {module.status === 1 ? (
                                         <Button
                                             variant="link"
                                             className="p-0"

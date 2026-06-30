@@ -179,21 +179,6 @@ export function UserForm({ userId }: UserFormProps) {
                             )}
                         </div>
 
-                        {/* SENHA */}
-                        {!userId && (
-                            <div className="space-y-2">
-                                <Label htmlFor="password">* Senha</Label>
-                                <Input
-                                    type="password"
-                                    placeholder="Digite a senha..."
-                                    {...register("password")}
-                                />
-                                {errors.password && (
-                                    <p className="text-xs text-red-600">{errors.password.message}</p>
-                                )}
-                            </div>
-                        )}
-
                         {/* STATUS */}
                         <div className="space-y-2 md:space-y-4">
                             <Label htmlFor="status">Status</Label>

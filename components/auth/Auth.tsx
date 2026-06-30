@@ -23,7 +23,7 @@ export function Auth() {
     return (
         <div className="space-y-8">
             <div className="space-y-2">
-                <h1 className="text-2xl font-bold tracking-tight text-gray-800">
+                <h1 className="text-2xl font-bold tracking-tight text-white">
                     Bem-vindo de volta
                 </h1>
                 <p className="text-muted-foreground text-sm">
@@ -38,7 +38,7 @@ export function Auth() {
                         Qual seu e-mail?
                     </Label>
                     <div className="relative group">
-                        <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                        <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                         <Input
                             type="email"
                             className="pl-11 h-10 bg-white/5 border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
@@ -61,7 +61,7 @@ export function Auth() {
                         </Label>
                     </div>
                     <div className="relative group">
-                        <Lock className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                        <Lock className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                         <Input
                             type={showPassword ? "text" : "password"}
                             placeholder="Digite sua senha..."
@@ -91,7 +91,7 @@ export function Auth() {
                 {/* BOTÃO */}
                 <Button
                     type="submit"
-                    className="w-full h-10 bg-indigo-800 hover:bg-indigo-800/70 text-white"
+                    className="w-full h-10 bg-indigo-600 hover:bg-indigo-600/70 text-white"
                     disabled={loading}
                 >
                     {loading ? (

@@ -23,7 +23,7 @@ const quicksand = Quicksand({
 
 // METADATA
 export const metadata: Metadata = {
-    title: "Plataforma de Cursos | IA",
+    title: "MENTORIA 360 IA - Área de Membros",
     description: "VREG TECNOLOGIA DA INFORMAÇÃO - PLATAFORMA DE CURSOS"
 };
 

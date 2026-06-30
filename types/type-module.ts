@@ -8,14 +8,23 @@ export type IModuleIcon =
 // MODULE
 export type IModule = {
     id: number;
-    level: string;
     title: string;
+    slug: string;
+    subtitle: string;
     description: string;
-    status: string;
-    progress: number;
+    thumbnail: string;
+    thumbnailUrl: string;
     icon: IModuleIcon;
-    active: boolean;
     color: string;
+    level: string;
+    order: number;
+    progress: number;
+    estimatedTime: number;
+    totalLessons: number;
+    status: number;
+    featured: boolean;
+    createdAt: string;
+    updatedAt: string;
 };
 
 // MODULE PAGINATION

@@ -4,7 +4,7 @@ import { getServerApi } from "@/services/axios-server";
 import { toApiErrorServer } from "@/utils/api-error";
 import type { ApiResponse } from "@/types/type-api-response";
 import type { IUser, IUserResponse, IUserViewResponse } from "@/types/type-user";
-import type { CreateUserFormData, UpdateUserFormData } from "@/types/type-user-form";
+import type { UserFormData } from "@/types/type-user-form";
 
 // LISTAR
 export async function getUser(
@@ -64,7 +64,7 @@ export async function getUserView(
 
 // SALVAR / EDITAR
 export async function saveUser(
-    data: CreateUserFormData | UpdateUserFormData,
+    data: UserFormData,
     userId?: number
 ): Promise<ApiResponse<IUser>> {
     try {

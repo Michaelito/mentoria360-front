@@ -37,7 +37,7 @@ export function AuthSendEmail() {
             <div className="text-right">
                 <button
                     type="button"
-                    className="text-sm text-gray-400 hover:text-indigo-800 transition-colors underline-offset-4 hover:underline cursor-pointer"
+                    className="text-sm text-gray-400 hover:text-indigo-600 transition-colors underline-offset-4 hover:underline cursor-pointer"
                     onClick={() => setShowFirstModal(true)}
                 >
                     Esqueci minha senha
@@ -48,7 +48,7 @@ export function AuthSendEmail() {
             <Dialog open={showFirstModal} onOpenChange={setShowFirstModal}>
                 <DialogContent className="sm:max-w-105 bg-white border-none overflow-hidden p-0">
                     <DialogHeader className="px-6 py-4">
-                        <DialogTitle className="flex items-center text-indigo-800 font-bold tracking-tight gap-2">
+                        <DialogTitle className="flex items-center text-indigo-600 font-bold tracking-tight gap-2">
                             <Lock className="w-4 h-4" />
                             Esqueci minha senha
                         </DialogTitle>
@@ -56,7 +56,7 @@ export function AuthSendEmail() {
                     </DialogHeader>
                     <div className="px-8 pb-8 space-y-6">
                         <div className="flex flex-col items-center justify-center text-center space-y-3">
-                            <div className="rounded-2xl border border-indigo-800/30 bg-indigo-800/10 text-indigo-800 p-4">
+                            <div className="rounded-2xl border border-indigo-600/30 bg-indigo-600/10 text-indigo-600 p-4">
                                 <Mail className="h-8 w-8" />
                             </div>
                             <div className="space-y-1">
@@ -74,10 +74,10 @@ export function AuthSendEmail() {
                                     E-mail Cadastrado
                                 </Label>
                                 <div className="relative group">
-                                    <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-800 transition-colors" />
+                                    <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-indigo-600 transition-colors" />
                                     <Input
                                         type="email"
-                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-800 focus-visible:border-indigo-800 transition-all"
+                                        className="pl-11 h-10 border-black/10 focus-visible:ring-indigo-600 focus-visible:border-indigo-600 transition-all"
                                         placeholder="Digite seu e-mail..."
                                         {...firstForm.form.register("email")}
                                     />
@@ -93,7 +93,7 @@ export function AuthSendEmail() {
                             <div className="flex flex-col gap-3 pt-2">
                                 <Button
                                     type="submit"
-                                    className="w-full h-10 bg-indigo-800 hover:bg-indigo-800/70 text-white"
+                                    className="w-full h-10 bg-indigo-600 hover:bg-indigo-600/70 text-white"
                                     disabled={firstForm.isSubmitting}
                                 >
                                     {firstForm.isSubmitting ? "Processando..." : "Enviar Código de Segurança"}
@@ -101,7 +101,7 @@ export function AuthSendEmail() {
                                 <Button
                                     type="button"
                                     variant="ghost"
-                                    className="w-full h-10 text-gray-400 hover:text-indigo-800"
+                                    className="w-full h-10 text-gray-400 hover:text-indigo-600"
                                     onClick={() => setShowFirstModal(false)}
                                 >
                                     Voltar para o login

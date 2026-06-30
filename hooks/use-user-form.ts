@@ -9,7 +9,7 @@ import { resolveApiResponse } from "@/utils/api-result-resolve";
 import { handleApiError } from "@/utils/api-error-handle";
 import { ApiBusinessError, ApiTechnicalError } from "@/utils/api-error";
 import { Modal } from "@/components/common/Alert";
-import { getUserFormSchema, UserFormData, CreateUserFormData, UpdateUserFormData } from "@/types/type-user-form";
+import { userFormSchema, UserFormData } from "@/types/type-user-form";
 import type { IUser } from "@/types/type-user";
 
 // PROPS
@@ -27,12 +27,11 @@ export function useUserForm({ userId }: UserFormProps) {
 
     // HOOK-FORM
     const form = useForm<UserFormData>({
-        resolver: zodResolver(getUserFormSchema(isEdit)),
+        resolver: zodResolver(userFormSchema),
         mode: "onChange",
         defaultValues: {
             name    : "",
             lastname: "",
-            password: "",
             document: "",
             profile : "",
             status  : 1
@@ -45,29 +44,10 @@ export function useUserForm({ userId }: UserFormProps) {
             // console.log("[useUserForm] Dados recebidos do formulário:", data);
             // console.log("[useUserForm] userId:", userId);
 
-            // PAYLOAD - NO MODO EDIÇÃO, A SENHA NÃO DEVE SER ENVIADA.
-            const payload: CreateUserFormData | UpdateUserFormData = isEdit
-                ? {
-                    name    : data.name,
-                    lastname: data.lastname,
-                    document: data.document,
-                    profile : data.profile,
-                    status  : data.status
-                }
-                : {
-                    name    : data.name,
-                    lastname: data.lastname,
-                    password: data.password ?? "",
-                    document: data.document,
-                    profile : data.profile,
-                    status  : data.status
-                };
-            // console.log("[useUserForm] Payload montado para envio:", payload);
-
             // FAZ A REQUISIÇÃO
             const result = isEdit
-                ? await saveUser(payload, userId)
-                : await saveUser(payload);
+                ? await saveUser(data, userId)
+                : await saveUser(data);
             // console.log("[useUserForm] Resultado bruto da server action:", result);
 
             // RESOLVE ERRO TÉCNICO

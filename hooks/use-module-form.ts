@@ -30,12 +30,17 @@ export function useModuleForm({ moduleId }: ModuleFormProps) {
         resolver: zodResolver(moduleFormSchema),
         mode: "onChange",
         defaultValues: {
-            title      : "",
-            description: "",
-            level      : "",
-            icon       : "",
-            active     : "",
-            status     : ""
+            title        : "",
+            subtitle     : "",
+            description  : "",
+            level        : "",
+            icon         : "",
+            color        : "",
+            order        : 1,
+            estimatedTime: 0,
+            featured     : false,
+            status       : 1,
+            thumbnail    : null
         }
     });
 

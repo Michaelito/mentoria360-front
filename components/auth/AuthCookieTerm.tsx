@@ -96,7 +96,7 @@ export function AuthCookieTerm() {
                         <SheetFooter className="flex flex-col sm:flex-row sm:justify-end gap-2 mt-6">
                             <Button
                                 variant="default"
-                                className="bg-indigo-800 hover:bg-indigo-800/70 text-white"
+                                className="bg-indigo-600 hover:bg-indigo-600/70 text-white"
                                 onClick={handleAccept}
                             >
                                 Aceitar
